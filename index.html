@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Vulnerability Aggregator</title>
+</head>
+<body>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-10 bg-gray-100 min-h-screen">
+    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500">
+        <h2 class="text-gray-500 text-sm font-bold uppercase">Threat Level</h2>
+        <p class="text-3xl font-extrabold text-red-600 mt-2">HIGH</p>
+        <p class="text-xs text-gray-400 mt-4">Updated: Just Now</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500">
+        <h2 class="text-gray-500 text-sm font-bold uppercase">AI Vulnerability Summary</h2>
+        <p class="text-sm text-gray-700 mt-3 italic">"AI is currently analyzing the latest CVE..."</p>
+        <button class="mt-4 bg-blue-600 text white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">Refresh AI</button>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-500">
+        <h2 class="text-gray-500 text-sm font-bold uppercase">System Integrity</h2>
+        <div class="mt-4 space-y-2">
+            <div class="h-2 bg-gray-200 rounded-full"><div class="h-2 bg-green-500 w-[92%] rounded-full"></div></div>
+             <p class="text-xs text-gray-500 text-right">92% Secure</p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
