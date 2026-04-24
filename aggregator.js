@@ -1,5 +1,9 @@
+// ---The SETTINGS ---
+const NVD_API_KEY = "b904dcb8-4e57-47aa-80b0-a17940197d61";
+
+
 //---The BUCKET---(Top of the file)
-let allVulnerablities = [] //This starts empty, like an empty bucket
+let allVulnerabilities = []; //This starts empty, like an empty bucket
 
 // --- The PULLER (fetch)
 async function loadNVDData() {
@@ -10,18 +14,17 @@ async function loadNVDData() {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                ' b904dcb8-4e57-47aa-80b0-a17940197d61'
-                : NVD_API_KEY
+                'apiKey': NVD_API_KEY
             }
         }
 
-        );
+    });
 
         const data = await response.json();
-        allVulnerablities = data.vulnerabilities;
+    allVulnerabilities = data.vulnerabilities;
 
-        //Once the data is collected, tell the PAINTER to start.
-        displayVulnerabilities(allVulnerabilities);
+    //Clear the "Loading..." text
+    listElement.innerHTML = '';
 
         // ---The PAINTER (This is where your line lives!)
         function displayVulnerabilities(list) {
@@ -34,10 +37,11 @@ async function loadNVDData() {
 
         //Loop through the first 5 vulnerabilities
         data.vulnerabilities.forEach(item => {
-            const cveID - item.cve.id;
-            const description = item.cve.description[0].value;
+            const cveID = item.cve.id;
+            const description = item.cve.descriptions[0].value;
 
             //Create a small card for each one
+            //We use ` (backticks) to build this "sticker"
             const card = `<div class="vulnerability-card" style="border: 1px solid #444; margin:10px; padding: 10px;>
             <strong>style="color: #ff4d4d">${cveID}</strong>
             <p style="font-size: 0.9em">${description.substring(0, 150)}...</p></div>`;
