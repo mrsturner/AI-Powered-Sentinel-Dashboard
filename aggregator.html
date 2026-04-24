@@ -7,6 +7,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
    </head>
 <body>
+    <div id="dashboard-container">
+        <h2>Latest Vulnerablities (NVD)</h2>
+        <div id="controls"><button onclick="filterHighSeverity()">Show Critical Only (CVSS > 8.0)</button>
+        <button onclick="LoadNVDData()"></button>
+        </div>
+        <div id = "dashboard-container">
+            <h2>Latest Vulnerabilities (NVD)</h2>
+        <div id="vulnerability-list">
+            <p>Loading security data...</p>
+        </div>
+        </div>
    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-10 bg-gray-100 min-h-screen">
     <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500">
         <h2 class="text-gray-500 text-sm font-bold uppercase">Threat Level</h2>
@@ -26,5 +37,7 @@
         </div>
     </div>
     </div>
+    </div>
+    <script src="aggregator.js"></script>
 </body>
 </html>
