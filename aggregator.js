@@ -2,7 +2,6 @@ const NVD_API_KEY = "b904dcb8-4e57-47aa-80b0-a17940197d61";
 
 async function loadNVDData() {
     const listElement = document.getElementById('vulnerability-list');
-    const url =
     console.log("Robot is starting..."); // This shows up in the F12 Console
 
     try {
@@ -12,15 +11,12 @@ async function loadNVDData() {
         });
 
         const data = await response.json();
-        allVulnerabilities = data.vulnerabilities; // Store the data for later use
         console.log("Data received:", data);
 
         listElement.innerHTML = ''; // Clear "Loading..."
 
-        allVulnerabilities.forEach(item => {
-            const cveID = item.cve.id;
-            const description = item.cve.descriptions[0].value;
-            const id = `${cveID}: ${description}`;
+        data.vulnerabilities.forEach(item => {
+            const id = item.cve.id;
             // The "Glue Gun" step
             listElement.innerHTML += `<div style="border:1px solid red; padding:10px; margin:5px;">Found: ${id}</div>`;
         });
