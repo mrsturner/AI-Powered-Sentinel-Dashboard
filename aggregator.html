@@ -6,19 +6,23 @@
      <title>News & Vulnerability Aggregator</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
    </head>
-<body>
-    <div id="dashboard-container">
+<body class="bg-gray-50 font sans">
+    <div id="dashboard-container" class="max-w-7xl mx-auto p-6">
+        <header class="mb-8">
+            <h1 class="text-3xl font-extrabold text-gray-800">Security Command Center</h1>
+            <p class="text-gray-500">Managing vulnerabilities and system integrity</p>
+        </header>
         <h2>Latest Vulnerabilities (NVD)</h2>
-        <div id="controls"><button onclick="filterHighSeverity()">Show Critical Only (CVSS > 8.0)</button>
-        <button onclick="LoadNVDData()"></button>
+        <div id="controls" class="flex gap-4 mb-10"><button onclick="filterHighSeverity()" class="bg-red-600 text-white px-6 py-2 rounded-lg font-bold shadow-md hover:bg-red-700 transition">Show Critical Only (CVSS > 8.0)</button>
+        <button onclick="loadNVDData()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold shadow-md hover:bg-blue-700 transition">Refresh NVD Data</button>
         </div>
-        <div id = "dashboard-container">
-            <h2>Latest Vulnerabilities (NVD)</h2>
+        <section class="mb-12">
+        <h2 class="text-xl font-bold text-gray-700 mb-4 border-b-2 border-gray-200 pb-2">Latest Vulnerabilities (NVD)</h2>
         <div id="vulnerability-list">
-            <p>Loading security data...</p>
+            <p>Loading security data...Waiting for data command...</p>
         </div>
-        </div>
-   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-10 bg-gray-100 min-h-screen">
+        </section>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500">
         <h2 class="text-gray-500 text-sm font-bold uppercase">Threat Level</h2>
         <p class="text-3xl font-extrabold text-red-600 mt-2">HIGH</p>
@@ -27,17 +31,17 @@
     <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500">
         <h2 class="text-gray-500 text-sm font-bold uppercase">AI Vulnerability Summary</h2>
         <p class="text-sm text-gray-700 mt-3 italic">"AI is currently analyzing the latest CVE..."</p>
-        <button class="mt-4 bg-blue-600 text white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">Refresh AI</button>
+        <button class="mt-4 bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm hover:bg-blue-200">Refresh AI</button>
     </div>
     <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-green-500">
         <h2 class="text-gray-500 text-sm font-bold uppercase">System Integrity</h2>
         <div class="mt-4 space-y-2">
-            <div class="h-2 bg-gray-200 rounded-full"><div class="h-2 bg-green-500 w-[92%] rounded-full"></div></div>
+        <div class="h-2 bg-gray-200 rounded-full"><div class="h-2 bg-green-500 w-[92%] rounded-full"></div></div>
              <p class="text-xs text-gray-500 text-right">92% Secure</p>
         </div>
     </div>
     </div>
     </div>
-    <script src="aggregator.js"></script>
+    <script src="./aggregator.js"></script>
 </body>
 </html>
